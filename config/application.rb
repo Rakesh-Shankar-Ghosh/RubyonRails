@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails/all"
+require_relative '../app/middlewares/my_custom_middleware'
+# require_relative '../app/middlewares/my_chain_middleware'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,5 +20,13 @@ module Backend
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+
+
+    config.middleware.use MyCustomMiddleware
+    # config.middleware.use MyCustomMiddleware2    //chain based
+
+
+
   end
 end
